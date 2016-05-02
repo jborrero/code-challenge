@@ -1,0 +1,36 @@
+<!-- A simple page for displaying the detailed meta data of a selected photo -->
+
+
+<h1>{{imageDetail.title._content}}</h1>
+
+<p>{{imageDetail.description._content}}</p>
+
+<!-- TODO: Retrieve a larger image of the selected photo and display -->
+
+<!-- Additional metadata could be added here -->
+<ul>
+  <li>
+    <dl>
+      <dt>Owner</dt>
+      <dd>{{imageDetail.owner.username}}</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>Date Taken</dt>
+      <dd>{{imageDetail.dates.taken}}</dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>Flickr URLs</dt>
+      <dd ng-repeat="url in imageDetail.urls.url">{{url.type}}: <a href={{url._content}}>{{url._content}}</a></dd>
+    </dl>
+  </li>
+  <li>
+    <dl>
+      <dt>Tags</dt>
+      <dd ng-repeat="tag in imageDetail.tags.tag">{{tag.raw}}</dd>
+    </dl>
+  </li>
+</ul>

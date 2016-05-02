@@ -1,0 +1,27 @@
+<!-- A view for searching for a list of photos by tag (or multiple, comma-separated tags) -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <!--TODO: improve usability by making Enter submit the query; improve user experience by keeping search term when user returns to the page via the back button-->
+      Tag Search: <input ng-model="tagQuery">
+      <button ng-click="searchTags()">Submit</button>
+
+      <!-- TODO: A drop down could be added here to sort by dates and relevance (using the "sort" parameter of search rest call) -->
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="phones">
+        <li ng-repeat="image in images">
+          <a href="#/images/{{image.id}}" class="thumb"><img ng-src="{{image.url_t}}" alt="{{image.title}}"></a>
+          <a href="#/images/{{image.id}}">{{image.title}}</a>
+          <p>Tags: {{image.tags}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
